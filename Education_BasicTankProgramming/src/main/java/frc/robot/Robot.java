@@ -8,8 +8,7 @@ import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 public class Robot extends TimedRobot {
   
   // ===============================パーツ定義===============================
-  private final XboxController leftStick;
-  private final XboxController rightStick;
+  private final XboxController controller = new XboxController(0);
 
   private final PWMSparkMax leftMotor   = new PWMSparkMax(0);
   private final PWMSparkMax rightMotor  = new PWMSparkMax(1);
@@ -19,14 +18,13 @@ public class Robot extends TimedRobot {
   double right_Y  = 0;
 
   public Robot() {
-    leftStick   = new XboxController(0);
-    rightStick  = new XboxController(1);
+    
   }
 
   @Override
   public void teleopPeriodic() {
-    left_Y  = leftStick.getLeftY();
-    right_Y = rightStick.getRightY();
+    left_Y  = controller.getLeftY();
+    right_Y = controller.getRightY();
 
     leftMotor.set(left_Y);
     rightMotor.set(right_Y);
