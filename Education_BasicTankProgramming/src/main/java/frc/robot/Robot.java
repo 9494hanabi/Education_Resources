@@ -17,10 +17,8 @@ public class Robot extends TimedRobot {
   double left_Y   = 0;
   double right_Y  = 0;
 
-  public Robot() {
-    
-  }
-
+  public Robot() {}
+  
   @Override
   public void teleopPeriodic() {
     left_Y  = controller.getLeftY();
