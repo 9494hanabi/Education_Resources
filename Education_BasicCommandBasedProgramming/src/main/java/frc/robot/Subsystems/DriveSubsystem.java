@@ -20,10 +20,12 @@ public class DriveSubsystem extends SubsystemBase {
         leftFrontMotor.addFollower(leftBackMotor);
         rightFrontMotor.addFollower(rightBackMotor);
     }
-    
+
     // ==================================================実行する処理==================================================
     public void arcadeDrive(double moveSpeed, double rotateSpeed) {
         drive.arcadeDrive(moveSpeed, rotateSpeed);
+        System.err.println("moveSpeed = " + moveSpeed);
+        System.err.println("rotateSpeed = " + rotateSpeed);
     }
 
     @Override
