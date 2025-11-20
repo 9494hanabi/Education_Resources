@@ -7,10 +7,10 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class DriveSubsystem extends SubsystemBase {
     // ==================================================パーツ定義==================================================
-    private final PWMSparkMax leftFrontMotor  = new PWMSparkMax(1);
-    private final PWMSparkMax leftBackMotor   = new PWMSparkMax(2);
-    private final PWMSparkMax rightFrontMotor = new PWMSparkMax(3);
-    private final PWMSparkMax rightBackMotor  = new PWMSparkMax(4);
+    private final PWMSparkMax leftFrontMotor  = new PWMSparkMax(0);
+    private final PWMSparkMax leftBackMotor   = new PWMSparkMax(1);
+    private final PWMSparkMax rightFrontMotor = new PWMSparkMax(2);
+    private final PWMSparkMax rightBackMotor  = new PWMSparkMax(3);
 
     // ==================================================メソッド/クラスのインスタンス作成==================================================
     private final DifferentialDrive drive = new DifferentialDrive(leftFrontMotor, rightFrontMotor);
