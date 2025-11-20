@@ -5,24 +5,25 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 public class Robot extends TimedRobot {
+  // ==================================================メソッド/クラスのインスタンス作成==================================================
   private Command m_autonomousCommand;
   private RobotContainer robotContainer;
 
   @Override
   public void robotInit() {
-    // RobotContainer を生成してサブシステム・コマンドの設定を行う
+    // ==================================================RobotContainer作成==================================================
     robotContainer = new RobotContainer();
   }
 
   @Override
   public void robotPeriodic() {
-    // コマンドベースフレームワークのスケジューラを毎周期実行
+    // ==================================================周期処理を実行==================================================
     CommandScheduler.getInstance().run();
   }
 
   @Override
   public void autonomousInit() {
-    // 自律モードが始まったとき呼ばれる
+    // ==================================================Autonomous開始時の初期化関数==================================================
     m_autonomousCommand = robotContainer.getAutonomousCommand();
 
     if (m_autonomousCommand != null) {
@@ -32,7 +33,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopInit() {
-    // 手動モードが始まったとき呼ばれる
+    // ==================================================手動操作開始時の初期化関数==================================================
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
@@ -40,7 +41,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void disabledInit() {
-    // 無効モードに入ったとき呼ばれる
+    // ==================================================diable時の初期化関数==================================================
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
@@ -48,7 +49,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void testInit() {
-    // テストモードに入ったとき呼ばれる
+    // ==================================================test時の初期化関数==================================================
     CommandScheduler.getInstance().cancelAll();
   }
 }
